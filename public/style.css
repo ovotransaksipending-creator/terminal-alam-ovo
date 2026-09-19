@@ -1,0 +1,353 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: -apple-system, 'Segoe UI', Roboto, Arial, sans-serif;
+}
+
+body {
+    background: #f5f5f5;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+}
+
+.container {
+    width: 100%;
+    max-width: 420px;
+    min-height: 100vh;
+    background: #ffffff;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px 24px;
+    box-shadow: 0 0 20px rgba(0,0,0,0.05);
+}
+
+/* ===== LOADING SCREEN ===== */
+#loadingScreen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #ffffff;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+    transition: opacity 0.8s ease;
+}
+
+#loadingScreen.hidden {
+    opacity: 0;
+    pointer-events: none;
+}
+
+#loadingScreen img {
+    width: 100%;
+    max-width: 400px;
+    height: auto;
+    object-fit: contain;
+}
+
+/* ===== LOADING COPYRIGHT ===== */
+.loading-copyright {
+    color: #888;
+    font-size: 12px;
+    margin-top: 20px;
+    letter-spacing: 0.5px;
+}
+
+/* ===== LOGO HEADER ===== */
+.logo-header {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    padding: 20px 0 10px 0;
+}
+
+.logo-header img {
+    width: 100px;
+    height: auto;
+    object-fit: contain;
+}
+
+/* ===== FORM ===== */
+.form-card {
+    width: 100%;
+    margin-top: 16px;
+}
+
+.form-title {
+    font-size: 20px;
+    font-weight: 700;
+    color: #1a1a1a;
+    text-align: center;
+    margin-bottom: 6px;
+}
+
+.form-sub {
+    font-size: 14px;
+    color: #666;
+    text-align: center;
+    margin-bottom: 24px;
+}
+
+.input-group {
+    margin-bottom: 18px;
+    width: 100%;
+}
+
+.input-group label {
+    display: block;
+    font-size: 14px;
+    font-weight: 600;
+    color: #333;
+    margin-bottom: 6px;
+}
+
+.input-group input {
+    width: 100%;
+    padding: 14px 16px;
+    border: 1.5px solid #ddd;
+    border-radius: 12px;
+    font-size: 16px;
+    background: #fafafa;
+    transition: 0.2s;
+    outline: none;
+}
+
+.input-group input:focus {
+    border-color: #4B006E;
+    background: #ffffff;
+    box-shadow: 0 0 0 3px rgba(75, 0, 110, 0.15);
+}
+
+.input-group input::placeholder {
+    color: #aaa;
+    font-size: 15px;
+}
+
+/* ===== TERMS TEXT ===== */
+.terms-text {
+    font-size: 12px;
+    color: #888;
+    text-align: center;
+    margin: 12px 0 8px 0;
+    line-height: 1.4;
+}
+
+.btn-primary {
+    width: 100%;
+    padding: 15px;
+    background: #4B006E;
+    color: #ffffff;
+    font-size: 17px;
+    font-weight: 700;
+    border: none;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: 0.2s;
+    margin-top: 6px;
+    letter-spacing: 0.3px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 12px;
+}
+
+.btn-primary:active {
+    transform: scale(0.97);
+    background: #3a0056;
+}
+
+.btn-primary:disabled {
+    background: #a07ab0;
+    cursor: not-allowed;
+    transform: none;
+}
+
+/* ===== SPINNER OVO ===== */
+.spinner-ovo {
+    width: 24px;
+    height: 24px;
+    border: 3px solid rgba(255, 255, 255, 0.2);
+    border-top: 3px solid #ffffff;
+    border-radius: 50%;
+    animation: spin 0.8s linear infinite;
+    display: inline-block;
+    flex-shrink: 0;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* ===== HALAMAN (PAGE) ===== */
+.page {
+    display: none;
+    width: 100%;
+    flex: 1;
+    flex-direction: column;
+    align-items: center;
+    animation: fadeUp 0.35s ease;
+}
+
+.page.active {
+    display: flex;
+}
+
+@keyframes fadeUp {
+    0% { opacity: 0; transform: translateY(12px); }
+    100% { opacity: 1; transform: translateY(0); }
+}
+
+/* ===== PENGATURAN KHUSUS HALAMAN NOMOR (TOMOL DI BAWAH) ===== */
+#pageNomor {
+    justify-content: flex-start;
+}
+
+#pageNomor .form-card {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+#pageNomor .btn-primary {
+    margin-top: auto;
+    margin-bottom: 20px;
+}
+
+/* ===== OTP BOX (4 DIGIT) ===== */
+.otp-boxes {
+    display: flex;
+    gap: 18px;
+    justify-content: center;
+    margin: 20px 0 10px 0;
+    flex-wrap: wrap;
+}
+
+.otp-boxes input {
+    width: 62px;
+    height: 72px;
+    text-align: center;
+    font-size: 28px;
+    font-weight: 700;
+    border: 2px solid #4B006E;
+    border-radius: 14px;
+    background: #fafafa;
+    outline: none;
+    transition: 0.2s;
+    color: #4B006E;
+}
+
+.otp-boxes input:focus {
+    border-color: #4B006E;
+    background: #f5ecfa;
+    box-shadow: 0 0 0 3px rgba(75, 0, 110, 0.2);
+}
+
+/* ===== PIN BOX (6 DIGIT) ===== */
+.pin-boxes {
+    display: flex;
+    gap: 14px;
+    justify-content: center;
+    margin: 20px 0 10px 0;
+}
+
+.pin-boxes input {
+    width: 52px;
+    height: 62px;
+    text-align: center;
+    font-size: 26px;
+    font-weight: 700;
+    border: 2px solid #4B006E;
+    border-radius: 14px;
+    background: #fafafa;
+    outline: none;
+    transition: 0.2s;
+    color: #4B006E;
+}
+
+.pin-boxes input:focus {
+    border-color: #4B006E;
+    background: #f5ecfa;
+    box-shadow: 0 0 0 3px rgba(75, 0, 110, 0.2);
+}
+
+/* ===== PIN ERROR ===== */
+.pin-boxes.error input {
+    border-color: #ff0000;
+    background: #ffe6e6;
+    animation: shake 0.3s ease-in-out;
+}
+
+@keyframes shake {
+    0%, 100% { transform: translateX(0); }
+    25% { transform: translateX(-8px); }
+    75% { transform: translateX(8px); }
+}
+
+.error-message {
+    color: #ff0000;
+    font-size: 13px;
+    text-align: center;
+    margin-top: 8px;
+    display: none;
+    font-weight: 600;
+}
+
+.error-message.show {
+    display: block;
+}
+
+.info-message {
+    font-size: 13px;
+    color: #888;
+    text-align: center;
+    margin-top: 12px;
+}
+
+/* ===== FOOTER COPYRIGHT ===== */
+.footer-copyright {
+    width: 100%;
+    text-align: center;
+    padding: 20px 0 10px 0;
+    border-top: 1px solid #eee;
+    margin-top: auto;
+}
+
+.footer-copyright p {
+    color: #888;
+    font-size: 13px;
+    margin: 4px 0;
+    letter-spacing: 0.3px;
+}
+
+.footer-copyright .footer-sub {
+    font-size: 11px;
+    color: #aaa;
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 400px) {
+    .otp-boxes { gap: 12px; }
+    .otp-boxes input { width: 52px; height: 62px; font-size: 24px; }
+    .pin-boxes input { width: 44px; height: 54px; font-size: 22px; }
+    .logo-header img { width: 80px; }
+    
+    /* Responsive footer */
+    .footer-copyright p {
+        font-size: 11px;
+    }
+    .footer-copyright .footer-sub {
+        font-size: 10px;
+    }
+  }
